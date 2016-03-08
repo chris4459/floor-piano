@@ -7,6 +7,24 @@ import pygame.mixer
 piano = True
 guitar = False
 
+def converter(char):
+	if char == 'a':
+		play_1()
+	elif char == 's':
+		play_2()
+	elif char == 'd':
+		play_3()
+	elif char == 'f':
+		play_4()
+	elif char == 'g':
+		play_5()
+	elif char == 'h':
+		play_6()
+	elif char == 'j':
+		play_7()
+	elif char == 'k':
+		play_8()
+
 def play_1():
 	if piano:
 		piano_c1.play()
@@ -55,6 +73,26 @@ def play_8():
 	elif guitar:
 		guitar_8.play()
 
+def pattern1():
+	print ("Starting pattern 1")
+	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f']
+	index = 0
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					index += 1
+					print (":yay match")
+					converter(letter)
+				elif letter == 'p':
+					print ("Exiting pattern1")
+					return
+				elif event.key == K_ESCAPE:
+					print ("Exiting pattern1")
+					return
+		
+
 if __name__=="__main__":
 	pygame.display.set_mode((120, 120), DOUBLEBUF | HWSURFACE)
 	pygame.init()
@@ -83,6 +121,9 @@ if __name__=="__main__":
 	while running:
 		for event in pygame.event.get():
 			if event.type == KEYDOWN:
+				# _ = pygame.key.name(event.key)
+				# print (_)
+
 				if event.key == K_ESCAPE:
 					running = False
 				# Instrument switching
@@ -108,3 +149,6 @@ if __name__=="__main__":
 					play_7()
 				elif event.key == pygame.K_k:
 					play_8()
+				# Patterns
+			elif event.key == pygame.K_z:
+				pattern1()
