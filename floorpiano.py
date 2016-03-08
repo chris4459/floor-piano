@@ -91,6 +91,24 @@ def pattern1():
 				elif event.key == K_ESCAPE:
 					print ("Exiting pattern1")
 					return
+def pattern2():
+	print ("Starting star wars theme!")
+	sequence = ['a', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 'f', 's']
+	index = 0
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					index += 1
+					print (":yay match")
+					converter(letter)
+				elif letter == 'p':
+					print ("Exiting pattern1")
+					return
+				elif event.key == K_ESCAPE:
+					print ("Exiting pattern1")
+					return
 		
 
 if __name__=="__main__":
@@ -150,5 +168,7 @@ if __name__=="__main__":
 				elif event.key == pygame.K_k:
 					play_8()
 				# Patterns
-			elif event.key == pygame.K_z:
-				pattern1()
+				elif event.key == pygame.K_z:
+					pattern1()
+				elif event.key == pygame.K_x:
+					pattern2()
