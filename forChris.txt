@@ -24,3 +24,33 @@ drum_5 = pygame.mixer.Sound("/home/pi/Desktop/project/drum/LIGHT_SHOT.wav")
 drum_6 = pygame.mixer.Sound("/home/pi/Desktop/project/drum/Piatti.wav")
 drum_7 = pygame.mixer.Sound("/home/pi/Desktop/project/drum/Spark_metal.wav")
 drum_8 = pygame.mixer.Sound("/home/pi/Desktop/project/drum/Timpani2.wav")
+
+
+=======
+
+piano_c1 = pygame.mixer.Sound("piano/c1.wav")
+piano_d = pygame.mixer.Sound("piano/d.wav")
+piano_e = pygame.mixer.Sound("piano/e.wav")
+piano_f = pygame.mixer.Sound("piano/f.wav")
+piano_g = pygame.mixer.Sound("piano/g.wav")
+piano_a = pygame.mixer.Sound("piano/a.wav")
+piano_b = pygame.mixer.Sound("piano/b.wav")
+piano_c2 = pygame.mixer.Sound("piano/c2.wav")
+
+guitar_1 = pygame.mixer.Sound("guitar/c.wav")
+guitar_2 = pygame.mixer.Sound("guitar/d.wav")
+guitar_3 = pygame.mixer.Sound("guitar/e.wav")
+guitar_4 = pygame.mixer.Sound("guitar/g.wav")
+guitar_5 = pygame.mixer.Sound("guitar/a.wav")
+guitar_6 = pygame.mixer.Sound("guitar/dmin.wav")
+guitar_7 = pygame.mixer.Sound("guitar/emin.wav")
+guitar_8 = pygame.mixer.Sound("guitar/gmin.wav")
+
+drum_1 = pygame.mixer.Sound("drum/BRUSH_SLAP_1.wav")
+drum_2 = pygame.mixer.Sound("drum/BRUSH_SWISH_1.wav")
+drum_3 = pygame.mixer.Sound("drum/CHINESE_TD_1.wav")
+drum_4 = pygame.mixer.Sound("drum/CRASH.wav")
+drum_5 = pygame.mixer.Sound("drum/LIGHT_SHOT.wav")
+drum_6 = pygame.mixer.Sound("drum/Piatti.wav")
+drum_7 = pygame.mixer.Sound("drum/Spark_metal.wav")
+drum_8 = pygame.mixer.Sound("drum/Timpani2.wav")
