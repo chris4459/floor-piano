@@ -95,7 +95,7 @@ def play_8():
 		drum_8.play(maxtime=800)
 
 def pattern1():
-	print ("Starting pattern 1")
+	print ("Starting pattern 1. Changing instrument to piano")
 	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f']
 	index = 0
 	while index < len(sequence):
@@ -113,7 +113,7 @@ def pattern1():
 					print ("Exiting pattern1")
 					return
 def pattern2():
-	print ("Starting star wars theme!")
+	print ("Starting star wars theme! Changing instrument to piano")
 	sequence = ['a', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 'f', 's']
 	index = 0
 	while index < len(sequence):
@@ -200,8 +200,14 @@ if __name__=="__main__":
 					drum = True
 				# Patterns
 				elif event.key == pygame.K_z:
+					piano = True
+					guitar = False
+					drum = False
 					pattern1()
 				elif event.key == pygame.K_x:
+					piano = True
+					guitar = False
+					drum = False
 					pattern2()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
