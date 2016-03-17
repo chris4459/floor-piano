@@ -114,6 +114,12 @@ def pattern1():
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
 					converter(letter)
+				elif letter == 'x':
+					pattern2()
+					return
+				elif letter == 'c':
+					pattern3()
+					return
 				elif letter == 'p':
 					print ("Exiting pattern1")
 					return
@@ -137,11 +143,17 @@ def pattern2():
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
 					converter(letter)
+				elif letter == 'z':
+					pattern1()
+					return
+				elif letter == 'c':
+					pattern3()
+					return
 				elif letter == 'p':
-					print ("Exiting pattern1")
+					print ("Exiting starwars pattern")
 					return
 				elif event.key == K_ESCAPE:
-					print ("Exiting pattern1")
+					print ("Exiting Exiting starwars pattern")
 					return
 
 def pattern3():
@@ -161,11 +173,17 @@ def pattern3():
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
 					converter(letter)
+				elif letter == 'z':
+					pattern1()
+					return
+				elif letter == 'x':
+					pattern2()
+					return
 				elif letter == 'p':
-					print ("Exiting pattern1")
+					print ("Exiting three key pattern")
 					return
 				elif event.key == K_ESCAPE:
-					print ("Exiting pattern1")
+					print ("Exiting three key pattern")
 					return
 
 
