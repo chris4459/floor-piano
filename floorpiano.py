@@ -98,12 +98,20 @@ def pattern1():
 	print ("Starting pattern 1. Changing instrument to piano")
 	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f']
 	index = 0
-	while index < len(sequence):
+	# Turn light on for first note
+	turnOnLEDLight(sequence[index])
+	while True:
 		for event in pygame.event.get():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
 				if letter == sequence[index]:
+					# When current note is stepped on, turn off the LED light for current light
+					# and turn on the next light in the pattern
+					turnOffLEDLight(sequence[index])
 					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
 					print (":yay match")
 					converter(letter)
 				elif letter == 'p':
@@ -116,12 +124,41 @@ def pattern2():
 	print ("Starting star wars theme! Changing instrument to piano")
 	sequence = ['a', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 'f', 's']
 	index = 0
+	turnOnLEDLight(sequence[index])
 	while index < len(sequence):
 		for event in pygame.event.get():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
 				if letter == sequence[index]:
+					turnOffLEDLight(sequence[index])
 					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
+					print (":yay match")
+					converter(letter)
+				elif letter == 'p':
+					print ("Exiting pattern1")
+					return
+				elif event.key == K_ESCAPE:
+					print ("Exiting pattern1")
+					return
+
+def pattern3():
+	print ("Starting pattern for only three keys")
+	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd']
+	index = 0
+	turnOnLEDLight(sequence[index])
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					turnOffLEDLight(sequence[index])
+					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
 					print (":yay match")
 					converter(letter)
 				elif letter == 'p':
@@ -132,11 +169,43 @@ def pattern2():
 					return
 
 
-# def turnOffLEDLight(char):
+def turnOffLEDLight(char):
+	return
 # 	if char == 'a':
-# 		GPIO.output(18,GPIO.LOW)
+# 		GPIO.output(11,GPIO.LOW)
 # 	elif char == 's':
+# 		GPIO.output(12,GPIO.LOW)
+# 	elif char == 'd':
+# 		GPIO.output(13,GPIO.LOW)
+# 	elif char == 'f':
+# 		GPIO.output(14,GPIO.LOW)
+# 	elif char == 'g':
+# 		GPIO.output(15,GPIO.LOW)
+# 	elif char == 'h':
+# 		GPIO.output(16,GPIO.LOW)
+# 	elif char == 'j':
 # 		GPIO.output(17,GPIO.LOW)
+# 	elif char == 'k':
+# 		GPIO.output(18,GPIO.LOW)
+
+def turnOnLEDLight(char):
+	return
+# 	if char == 'a':
+# 		GPIO.output(11,GPIO.HIGH)
+# 	elif char == 's':
+# 		GPIO.output(12,GPIO.HIGH)
+# 	elif char == 'd':
+# 		GPIO.output(13,GPIO.HIGH)
+# 	elif char == 'f':
+# 		GPIO.output(14,GPIO.HIGH)
+# 	elif char == 'g':
+# 		GPIO.output(15,GPIO.HIGH)
+# 	elif char == 'h':
+# 		GPIO.output(16,GPIO.HIGH)
+# 	elif char == 'j':
+# 		GPIO.output(17,GPIO.HIGH)
+# 	elif char == 'k':
+# 		GPIO.output(18,GPIO.HIGH)
 		
 
 if __name__=="__main__":
@@ -174,8 +243,14 @@ if __name__=="__main__":
 
 	# GPIO.setmode(GPIO.BCM)
 	# GPIO.setwarnings(False)
-	# GPIO.setup(17,GPIO.OUT)
 	# GPIO.setup(18,GPIO.OUT)
+	# GPIO.setup(17,GPIO.OUT)
+	# GPIO.setup(16,GPIO.OUT)
+	# GPIO.setup(15,GPIO.OUT)
+	# GPIO.setup(14,GPIO.OUT)
+	# GPIO.setup(13,GPIO.OUT)
+	# GPIO.setup(12,GPIO.OUT)
+	# GPIO.setup(11,GPIO.OUT)
 
 	running = True
 	while running:
@@ -209,6 +284,11 @@ if __name__=="__main__":
 					guitar = False
 					drum = False
 					pattern2()
+				elif event.key == pygame.K_c:
+					piano = True
+					guitar = False
+					drum = False
+					pattern3()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
 				# turnOffLEDLight(letter)
