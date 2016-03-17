@@ -9,6 +9,7 @@ import pygame.mixer
 piano = True
 guitar = False
 drum = False
+violin = False
 
 def converter(char):
 	if char == 'a':
@@ -36,6 +37,8 @@ def play_1():
 		guitar_1.play(maxtime=800)
 	elif drum:
 		drum_1.play(maxtime=800)
+	elif violin:
+		violin_c1.play(maxtime=800)
 
 def play_2():
 	# GPIO.output(17,GPIO.HIGH)
@@ -45,6 +48,8 @@ def play_2():
 		guitar_2.play(maxtime=800)
 	elif drum:
 		drum_2.play(maxtime=800)
+	elif violin:
+		violin_d.play(maxtime=800)
 
 def play_3():
 	if piano:
@@ -53,6 +58,8 @@ def play_3():
 		guitar_3.play(maxtime=800)
 	elif drum:
 		drum_3.play(maxtime=800)
+	elif violin:
+		violin_e.play(maxtime=800)
 
 def play_4():
 	if piano:
@@ -61,6 +68,8 @@ def play_4():
 		guitar_4.play(maxtime=800)
 	elif drum:
 		drum_4.play(maxtime=800)
+	elif violin:
+		violin_f.play(maxtime=800)
 
 def play_5():
 	if piano:
@@ -69,6 +78,8 @@ def play_5():
 		guitar_5.play(maxtime=800)
 	elif drum:
 		drum_5.play(maxtime=800)
+	elif violin:
+		violin_g.play(maxtime=800)
 
 def play_6():
 	if piano:
@@ -77,6 +88,8 @@ def play_6():
 		guitar_6.play(maxtime=800)
 	elif drum:
 		drum_6.play(maxtime=800)
+	elif violin:
+		violin_a.play(maxtime=800)
 
 def play_7():
 	if piano:
@@ -85,6 +98,8 @@ def play_7():
 		guitar_7.play(maxtime=800)
 	elif drum:
 		drum_7.play(maxtime=800)
+	elif violin:
+		violin_b.play(maxtime=800)
 
 def play_8():
 	if piano:
@@ -93,6 +108,8 @@ def play_8():
 		guitar_8.play(maxtime=800)
 	elif drum:
 		drum_8.play(maxtime=800)
+	elif violin:
+		violin_c2.play(maxtime=800)
 
 def pattern1():
 	print ("Starting pattern 1. Changing instrument to piano")
@@ -241,6 +258,15 @@ if __name__=="__main__":
 	piano_b = pygame.mixer.Sound("piano/b.wav")
 	piano_c2 = pygame.mixer.Sound("piano/c2.wav")
 
+	violin_c1 = pygame.mixer.Sound("violin/violin_c1.wav")
+	violin_d = pygame.mixer.Sound("violin/violin_d.wav")
+	violin_e = pygame.mixer.Sound("violin/violin_e.wav")
+	violin_f = pygame.mixer.Sound("violin/violin_f.wav")
+	violin_g = pygame.mixer.Sound("violin/violin_g.wav")
+	violin_a = pygame.mixer.Sound("violin/violin_a.wav")
+	violin_b = pygame.mixer.Sound("violin/violin_b.wav")
+	violin_c2 = pygame.mixer.Sound("violin/violin_c2.wav")
+
 	guitar_1 = pygame.mixer.Sound("guitar/c.wav")
 	guitar_2 = pygame.mixer.Sound("guitar/d.wav")
 	guitar_3 = pygame.mixer.Sound("guitar/e.wav")
@@ -283,29 +309,40 @@ if __name__=="__main__":
 					piano = True
 					guitar = False
 					drum = False
+					violin = False
 				elif event.key == pygame.K_w:
 					piano = False
 					guitar = True
 					drum = False
+					violin = False
 				elif event.key == pygame.K_e:
 					piano = False
 					guitar = False
 					drum = True
+					violin = False
+				elif event.key == pygame.K_r:
+					piano = False
+					guitar = False
+					drum = False
+					violin = True
 				# Patterns
 				elif event.key == pygame.K_z:
 					piano = True
 					guitar = False
 					drum = False
+					violin = False
 					pattern1()
 				elif event.key == pygame.K_x:
 					piano = True
 					guitar = False
 					drum = False
+					violin = False
 					pattern2()
 				elif event.key == pygame.K_c:
 					piano = True
 					guitar = False
 					drum = False
+					violin = False
 					pattern3()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
