@@ -212,41 +212,57 @@ def pattern3():
 
 def turnOffLEDLight(char):
 	return
-# 	if char == 'a':
-# 		GPIO.output(11,GPIO.LOW)
-# 	elif char == 's':
-# 		GPIO.output(12,GPIO.LOW)
-# 	elif char == 'd':
-# 		GPIO.output(13,GPIO.LOW)
-# 	elif char == 'f':
-# 		GPIO.output(14,GPIO.LOW)
-# 	elif char == 'g':
-# 		GPIO.output(15,GPIO.LOW)
-# 	elif char == 'h':
-# 		GPIO.output(16,GPIO.LOW)
-# 	elif char == 'j':
-# 		GPIO.output(17,GPIO.LOW)
-# 	elif char == 'k':
-# 		GPIO.output(18,GPIO.LOW)
+	# if char == 'a':
+	# 	print ("turn light 1 ON")
+	# 	GPIO.output(11,GPIO.LOW)
+	# elif char == 's':
+	# 	print ("turn light 2 ON")
+	# 	GPIO.output(12,GPIO.LOW)
+	# elif char == 'd':
+	# 	print ("turn light 3 ON")
+	# 	GPIO.output(13,GPIO.LOW)
+	# elif char == 'f':
+	# 	print ("turn light 4 ON")
+	# 	GPIO.output(14,GPIO.LOW)
+	# elif char == 'g':
+	# 	print ("turn light 5 ON")
+	# 	GPIO.output(15,GPIO.LOW)
+	# elif char == 'h':
+	# 	print ("turn light 6 ON")
+	# 	GPIO.output(16,GPIO.LOW)
+	# elif char == 'j':
+	# 	print ("turn light 7 ON")
+	# 	GPIO.output(17,GPIO.LOW)
+	# elif char == 'k':
+	# 	print ("turn light 8 ON")
+	# 	GPIO.output(18,GPIO.LOW)
 
 def turnOnLEDLight(char):
 	return
-# 	if char == 'a':
-# 		GPIO.output(11,GPIO.HIGH)
-# 	elif char == 's':
-# 		GPIO.output(12,GPIO.HIGH)
-# 	elif char == 'd':
-# 		GPIO.output(13,GPIO.HIGH)
-# 	elif char == 'f':
-# 		GPIO.output(14,GPIO.HIGH)
-# 	elif char == 'g':
-# 		GPIO.output(15,GPIO.HIGH)
-# 	elif char == 'h':
-# 		GPIO.output(16,GPIO.HIGH)
-# 	elif char == 'j':
-# 		GPIO.output(17,GPIO.HIGH)
-# 	elif char == 'k':
-# 		GPIO.output(18,GPIO.HIGH)
+	# if char == 'a':
+	# 	print ("turn light 1 OFF")
+	# 	GPIO.output(11,GPIO.HIGH)
+	# elif char == 's':
+	# 	print ("turn light 2 OFF")
+	# 	GPIO.output(12,GPIO.HIGH)
+	# elif char == 'd':
+	# 	print ("turn light 3 OFF")
+	# 	GPIO.output(13,GPIO.HIGH)
+	# elif char == 'f':
+	# 	print ("turn light 4 OFF")
+	# 	GPIO.output(14,GPIO.HIGH)
+	# elif char == 'g':
+	# 	print ("turn light 5 OFF")
+	# 	GPIO.output(15,GPIO.HIGH)
+	# elif char == 'h':
+	# 	print ("turn light 6 OFF")
+	# 	GPIO.output(16,GPIO.HIGH)
+	# elif char == 'j':
+	# 	print ("turn light 7 OFF")
+	# 	GPIO.output(17,GPIO.HIGH)
+	# elif char == 'k':
+	# 	print ("turn light 8 OFF")
+	# 	GPIO.output(18,GPIO.HIGH)
 		
 
 if __name__=="__main__":
