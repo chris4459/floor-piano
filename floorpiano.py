@@ -30,7 +30,7 @@ def converter(char):
 		play_8()
 
 def play_1():
-	# GPIO.output(18,GPIO.HIGH)
+	# GPIO.output(11,GPIO.HIGH)
 	if piano:
 		piano_c1.play(maxtime=800)
 	elif guitar:
@@ -41,7 +41,7 @@ def play_1():
 		violin_c1.play(maxtime=800)
 
 def play_2():
-	# GPIO.output(17,GPIO.HIGH)
+	# GPIO.output(12,GPIO.HIGH)
 	if piano:
 		piano_d.play(maxtime=800)
 	elif guitar:
@@ -52,6 +52,7 @@ def play_2():
 		violin_d.play(maxtime=800)
 
 def play_3():
+	# GPIO.output(13,GPIO.HIGH)
 	if piano:
 		piano_e.play(maxtime=800)
 	elif guitar:
@@ -62,6 +63,7 @@ def play_3():
 		violin_e.play(maxtime=800)
 
 def play_4():
+	# GPIO.output(14,GPIO.HIGH)
 	if piano:
 		piano_f.play(maxtime=800)
 	elif guitar:
@@ -72,6 +74,7 @@ def play_4():
 		violin_f.play(maxtime=800)
 
 def play_5():
+	# GPIO.output(15,GPIO.HIGH)
 	if piano:
 		piano_g.play(maxtime=800)
 	elif guitar:
@@ -82,6 +85,7 @@ def play_5():
 		violin_g.play(maxtime=800)
 
 def play_6():
+	# GPIO.output(16,GPIO.HIGH)
 	if piano:
 		piano_a.play(maxtime=800)
 	elif guitar:
@@ -92,6 +96,7 @@ def play_6():
 		violin_a.play(maxtime=800)
 
 def play_7():
+	# GPIO.output(17,GPIO.HIGH)
 	if piano:
 		piano_b.play(maxtime=800)
 	elif guitar:
@@ -102,6 +107,7 @@ def play_7():
 		violin_b.play(maxtime=800)
 
 def play_8():
+	# GPIO.output(18,GPIO.HIGH)
 	if piano:
 		piano_c2.play(maxtime=800)
 	elif guitar:
