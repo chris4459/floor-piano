@@ -122,6 +122,7 @@ def pattern1():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
 				if letter == sequence[index]:
+					converter(letter)
 					# When current note is stepped on, turn off the LED light for current light
 					# and turn on the next light in the pattern
 					turnOffLEDLight(sequence[index])
@@ -130,7 +131,6 @@ def pattern1():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
-					converter(letter)
 				elif letter == 'x':
 					pattern2()
 					return
@@ -153,13 +153,13 @@ def pattern2():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
 				if letter == sequence[index]:
+					converter(letter)
 					turnOffLEDLight(sequence[index])
 					index += 1
 					if index == len(sequence):
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
-					converter(letter)
 				elif letter == 'z':
 					pattern1()
 					return
@@ -183,13 +183,13 @@ def pattern3():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
 				if letter == sequence[index]:
+					converter(letter)
 					turnOffLEDLight(sequence[index])
 					index += 1
 					if index == len(sequence):
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print (":yay match")
-					converter(letter)
 				elif letter == 'z':
 					pattern1()
 					return
@@ -282,7 +282,7 @@ if __name__=="__main__":
 	drum_4 = pygame.mixer.Sound("drum/CRASH.wav")
 	drum_5 = pygame.mixer.Sound("drum/LIGHT_SHOT.wav")
 	drum_6 = pygame.mixer.Sound("drum/Piatti.wav")
-	drum_7 = pygame.mixer.Sound("drum/Spark_metal.wav")
+	drum_7 = pygame.mixer.Sound("drum/SPARK_metal.wav")
 	drum_8 = pygame.mixer.Sound("drum/Timpani2.wav")
 
 	# GPIO.setmode(GPIO.BCM)
