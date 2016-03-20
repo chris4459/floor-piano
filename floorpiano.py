@@ -150,6 +150,7 @@ def pattern1():
 				elif event.key == K_ESCAPE:
 					print ("Exiting pattern1")
 					return
+
 def pattern2():
 	print ("Starting star wars theme! Changing instrument to piano")
 	sequence = ['a', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 'f', 's']
@@ -211,7 +212,6 @@ def pattern3():
 				elif event.key == K_ESCAPE:
 					print ("Exiting three key pattern")
 					return
-
 
 def turnOffLEDLight(char):
 	if char == 'a':
@@ -277,6 +277,25 @@ def patternModeLight():
 	# GPIO.setup(19, GPIO.LOW)
 	# GPIO.setup(20, GPIO.HIGH)	
 
+def instrumentLightChange():
+	# Turn all off and then turn the selected instrument light on
+	# GPIO.output(21, GPIO.LOW)
+	# GPIO.output(22, GPIO.LOW)
+	# GPIO.output(23, GPIO.LOW)
+	# GPIO.output(24, GPIO.LOW)
+	if piano:
+		print("Piano light ON")
+		# GPIO.output(21, GPIO.HIGH)
+	if guitar:
+		print("Guitar light ON")
+		# GPIO.output(22, GPIO.HIGH)
+	if drum:
+		print("Drum light ON")
+		# GPIO.output(23, GPIO.HIGH)
+	if violin:
+		print("Violin light ON")
+		# GPIO.output(24, GPIO.HIGH)
+
 if __name__=="__main__":
 	pygame.display.set_mode((120, 120), DOUBLEBUF | HWSURFACE)
 	pygame.mixer.pre_init(44100, -16, 2, 2048)
@@ -321,7 +340,7 @@ if __name__=="__main__":
 
 	# GPIO.setmode(GPIO.BCM)
 	# GPIO.setwarnings(False)
-	# Piano Keys
+	# # Piano Keys
 	# GPIO.setup(18,GPIO.OUT)
 	# GPIO.setup(17,GPIO.OUT)
 	# GPIO.setup(16,GPIO.OUT)
@@ -330,16 +349,17 @@ if __name__=="__main__":
 	# GPIO.setup(13,GPIO.OUT)
 	# GPIO.setup(12,GPIO.OUT)
 	# GPIO.setup(11,GPIO.OUT)
-	# Mode
+	# # Mode
 	# GPIO.setup(19, GPIO.OUT)
 	# GPIO.setup(20, GPIO.OUT)
-	# Instruments
+	# # Instruments
 	# GPIO.setup(21, GPIO.OUT)
 	# GPIO.setup(22, GPIO.OUT)
 	# GPIO.setup(23, GPIO.OUT)
 	# GPIO.setup(24, GPIO.OUT)
 
 	freePlayModeLight()
+	instrumentLightChange()
 	running = True
 	while running:
 		for event in pygame.event.get():
@@ -354,21 +374,25 @@ if __name__=="__main__":
 					guitar = False
 					drum = False
 					violin = False
+					instrumentLightChange()
 				elif event.key == pygame.K_w:
 					piano = False
 					guitar = True
 					drum = False
 					violin = False
+					instrumentLightChange()
 				elif event.key == pygame.K_e:
 					piano = False
 					guitar = False
 					drum = True
 					violin = False
+					instrumentLightChange()
 				elif event.key == pygame.K_r:
 					piano = False
 					guitar = False
 					drum = False
 					violin = True
+					instrumentLightChange()
 				# Patterns
 				elif event.key == pygame.K_z:
 					piano = True
