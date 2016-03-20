@@ -119,7 +119,7 @@ def play_8():
 
 def pattern1():
 	print ("Starting pattern 1. Changing instrument to piano")
-	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f']
+	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f', 'd', 'f', 'g', 'd', 'g', 'd', 'g', 'f', 'g', 'h', 'h', 'g', 'f', 'h']
 	index = 0
 	# Turn light on for first note
 	turnOnLEDLight(sequence[index])
@@ -277,23 +277,36 @@ def patternModeLight():
 	# GPIO.setup(19, GPIO.LOW)
 	# GPIO.setup(20, GPIO.HIGH)	
 
-def instrumentLightChange():
-	# Turn all off and then turn the selected instrument light on
-	# GPIO.output(21, GPIO.LOW)
-	# GPIO.output(22, GPIO.LOW)
-	# GPIO.output(23, GPIO.LOW)
-	# GPIO.output(24, GPIO.LOW)
+def instrumentChange():
+# 	# Turn all off and then turn the selected instrument light on
+# 	# GPIO.output(21, GPIO.LOW)
+# 	# GPIO.output(22, GPIO.LOW)
+# 	# GPIO.output(23, GPIO.LOW)
+# 	# GPIO.output(24, GPIO.LOW)
 	if piano:
-		print("Piano light ON")
+		print("Piano instrument selected")
+		piano_c1.play(maxtime=1000)
+		piano_e.play(maxtime=1000)
+		piano_g.play(maxtime=1000)
 		# GPIO.output(21, GPIO.HIGH)
 	if guitar:
-		print("Guitar light ON")
+		print("Guitar instrument selected")
+		guitar_1.play(maxtime=1000)
+		guitar_2.play(maxtime=1000)
+		guitar_4.play(maxtime=1000)
 		# GPIO.output(22, GPIO.HIGH)
 	if drum:
-		print("Drum light ON")
+		print("Drum instrument selected")
+		drum_1.play(maxtime=1000)
+		drum_2.play(maxtime=1000)
+		drum_3.play(maxtime=1000)
+		drum_4.play(maxtime=1000)
 		# GPIO.output(23, GPIO.HIGH)
 	if violin:
-		print("Violin light ON")
+		print("Violin instrument selected")
+		violin_c1.play(maxtime=1000)
+		violin_e.play(maxtime=1000)
+		violin_g.play(maxtime=1000)
 		# GPIO.output(24, GPIO.HIGH)
 
 if __name__=="__main__":
@@ -359,7 +372,7 @@ if __name__=="__main__":
 	# GPIO.setup(24, GPIO.OUT)
 
 	freePlayModeLight()
-	instrumentLightChange()
+	instrumentChange()
 	running = True
 	while running:
 		for event in pygame.event.get():
@@ -374,25 +387,25 @@ if __name__=="__main__":
 					guitar = False
 					drum = False
 					violin = False
-					instrumentLightChange()
+					instrumentChange()
 				elif event.key == pygame.K_w:
 					piano = False
 					guitar = True
 					drum = False
 					violin = False
-					instrumentLightChange()
+					instrumentChange()
 				elif event.key == pygame.K_e:
 					piano = False
 					guitar = False
 					drum = True
 					violin = False
-					instrumentLightChange()
+					instrumentChange()
 				elif event.key == pygame.K_r:
 					piano = False
 					guitar = False
 					drum = False
 					violin = True
-					instrumentLightChange()
+					instrumentChange()
 				# Patterns
 				elif event.key == pygame.K_z:
 					piano = True
