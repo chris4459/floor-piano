@@ -136,7 +136,7 @@ def pattern1():
 					if index == len(sequence):
 						index = 0
 					turnOnLEDLight(sequence[index])
-					print (":yay match")
+					print ("Correct note played!")
 				elif letter == 'x':
 					pattern2()
 					return
@@ -145,6 +145,7 @@ def pattern1():
 					return
 				elif letter == 'p':
 					print ("Exiting pattern1")
+					patternModeLight()
 					return
 				elif event.key == K_ESCAPE:
 					print ("Exiting pattern1")
@@ -165,7 +166,7 @@ def pattern2():
 					if index == len(sequence):
 						index = 0
 					turnOnLEDLight(sequence[index])
-					print (":yay match")
+					print ("Correct note played!")
 				elif letter == 'z':
 					pattern1()
 					return
@@ -174,6 +175,7 @@ def pattern2():
 					return
 				elif letter == 'p':
 					print ("Exiting starwars pattern")
+					patternModeLight()
 					return
 				elif event.key == K_ESCAPE:
 					print ("Exiting Exiting starwars pattern")
@@ -195,7 +197,7 @@ def pattern3():
 					if index == len(sequence):
 						index = 0
 					turnOnLEDLight(sequence[index])
-					print (":yay match")
+					print ("Correct note played!")
 				elif letter == 'z':
 					pattern1()
 					return
@@ -204,6 +206,7 @@ def pattern3():
 					return
 				elif letter == 'p':
 					print ("Exiting three key pattern")
+					patternModeLight()
 					return
 				elif event.key == K_ESCAPE:
 					print ("Exiting three key pattern")
@@ -211,59 +214,68 @@ def pattern3():
 
 
 def turnOffLEDLight(char):
-	return
-	# if char == 'a':
-	# 	print ("turn light 1 ON")
-	# 	GPIO.output(11,GPIO.LOW)
-	# elif char == 's':
-	# 	print ("turn light 2 ON")
-	# 	GPIO.output(12,GPIO.LOW)
-	# elif char == 'd':
-	# 	print ("turn light 3 ON")
-	# 	GPIO.output(13,GPIO.LOW)
-	# elif char == 'f':
-	# 	print ("turn light 4 ON")
-	# 	GPIO.output(14,GPIO.LOW)
-	# elif char == 'g':
-	# 	print ("turn light 5 ON")
-	# 	GPIO.output(15,GPIO.LOW)
-	# elif char == 'h':
-	# 	print ("turn light 6 ON")
-	# 	GPIO.output(16,GPIO.LOW)
-	# elif char == 'j':
-	# 	print ("turn light 7 ON")
-	# 	GPIO.output(17,GPIO.LOW)
-	# elif char == 'k':
-	# 	print ("turn light 8 ON")
-	# 	GPIO.output(18,GPIO.LOW)
+	if char == 'a':
+		print ("turn light 1 OFF")
+		# GPIO.output(11,GPIO.LOW)
+	elif char == 's':
+		print ("turn light 2 OFF")
+		# GPIO.output(12,GPIO.LOW)
+	elif char == 'd':
+		print ("turn light 3 OFF")
+		# GPIO.output(13,GPIO.LOW)
+	elif char == 'f':
+		print ("turn light 4 OFF")
+		# GPIO.output(14,GPIO.LOW)
+	elif char == 'g':
+		print ("turn light 5 OFF")
+		# GPIO.output(15,GPIO.LOW)
+	elif char == 'h':
+		print ("turn light 6 OFF")
+		# GPIO.output(16,GPIO.LOW)
+	elif char == 'j':
+		print ("turn light 7 OFF")
+		# GPIO.output(17,GPIO.LOW)
+	elif char == 'k':
+		print ("turn light 8 OFF")
+		# GPIO.output(18,GPIO.LOW)
 
 def turnOnLEDLight(char):
-	return
-	# if char == 'a':
-	# 	print ("turn light 1 OFF")
-	# 	GPIO.output(11,GPIO.HIGH)
-	# elif char == 's':
-	# 	print ("turn light 2 OFF")
-	# 	GPIO.output(12,GPIO.HIGH)
-	# elif char == 'd':
-	# 	print ("turn light 3 OFF")
-	# 	GPIO.output(13,GPIO.HIGH)
-	# elif char == 'f':
-	# 	print ("turn light 4 OFF")
-	# 	GPIO.output(14,GPIO.HIGH)
-	# elif char == 'g':
-	# 	print ("turn light 5 OFF")
-	# 	GPIO.output(15,GPIO.HIGH)
-	# elif char == 'h':
-	# 	print ("turn light 6 OFF")
-	# 	GPIO.output(16,GPIO.HIGH)
-	# elif char == 'j':
-	# 	print ("turn light 7 OFF")
-	# 	GPIO.output(17,GPIO.HIGH)
-	# elif char == 'k':
-	# 	print ("turn light 8 OFF")
-	# 	GPIO.output(18,GPIO.HIGH)
+	if char == 'a':
+		print ("turn light 1 ON")
+		# GPIO.output(11,GPIO.HIGH)
+	elif char == 's':
+		print ("turn light 2 ON")
+		# GPIO.output(12,GPIO.HIGH)
+	elif char == 'd':
+		print ("turn light 3 ON")
+		# GPIO.output(13,GPIO.HIGH)
+	elif char == 'f':
+		print ("turn light 4 ON")
+		# GPIO.output(14,GPIO.HIGH)
+	elif char == 'g':
+		print ("turn light 5 ON")
+		# GPIO.output(15,GPIO.HIGH)
+	elif char == 'h':
+		print ("turn light 6 ON")
+		# GPIO.output(16,GPIO.HIGH)
+	elif char == 'j':
+		print ("turn light 7 ON")
+		# GPIO.output(17,GPIO.HIGH)
+	elif char == 'k':
+		print ("turn light 8 ON")
+		# GPIO.output(18,GPIO.HIGH)
 		
+def freePlayModeLight():
+	print ("Free play mode light ON")
+	print ("Pattern mode light OFF")
+	# GPIO.setup(19, GPIO.HIGH)
+	# GPIO.setup(20, GPIO.LOW)
+
+def patternModeLight():
+	print ("Free play mode light OFF")
+	print ("Pattern mode light ON")
+	# GPIO.setup(19, GPIO.LOW)
+	# GPIO.setup(20, GPIO.HIGH)	
 
 if __name__=="__main__":
 	pygame.display.set_mode((120, 120), DOUBLEBUF | HWSURFACE)
@@ -309,6 +321,7 @@ if __name__=="__main__":
 
 	# GPIO.setmode(GPIO.BCM)
 	# GPIO.setwarnings(False)
+	# Piano Keys
 	# GPIO.setup(18,GPIO.OUT)
 	# GPIO.setup(17,GPIO.OUT)
 	# GPIO.setup(16,GPIO.OUT)
@@ -317,7 +330,16 @@ if __name__=="__main__":
 	# GPIO.setup(13,GPIO.OUT)
 	# GPIO.setup(12,GPIO.OUT)
 	# GPIO.setup(11,GPIO.OUT)
+	# Mode
+	# GPIO.setup(19, GPIO.OUT)
+	# GPIO.setup(20, GPIO.OUT)
+	# Instruments
+	# GPIO.setup(21, GPIO.OUT)
+	# GPIO.setup(22, GPIO.OUT)
+	# GPIO.setup(23, GPIO.OUT)
+	# GPIO.setup(24, GPIO.OUT)
 
+	freePlayModeLight()
 	running = True
 	while running:
 		for event in pygame.event.get():
@@ -353,18 +375,21 @@ if __name__=="__main__":
 					guitar = False
 					drum = False
 					violin = False
+					patternModeLight()
 					pattern1()
 				elif event.key == pygame.K_x:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
+					patternModeLight()
 					pattern2()
 				elif event.key == pygame.K_c:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
+					patternModeLight()
 					pattern3()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
