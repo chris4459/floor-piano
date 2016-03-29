@@ -149,7 +149,6 @@ def pattern1():
 					return
 				elif letter == 'backspace':
 					print ("Exiting pattern1")
-					freePlayModeLight()
 					turnOffAllLEDLights()
 					return
 
@@ -182,7 +181,6 @@ def pattern2():
 					return
 				elif letter == 'backspace':
 					print ("Exiting starwars pattern")
-					freePlayModeLight()
 					turnOffAllLEDLights()
 					return
 
@@ -215,7 +213,6 @@ def pattern3():
 					return
 				elif letter == 'backspace':
 					print ("Exiting three key pattern")
-					freePlayModeLight()
 					turnOffAllLEDLights()
 					return
 
@@ -248,7 +245,6 @@ def pattern0():
 					return
 				elif letter == 'backspace':
 					print ("Exiting three key pattern")
-					freePlayModeLight()
 					turnOffAllLEDLights()
 					return
 
@@ -315,18 +311,6 @@ def turnOnLEDLight(char):
 	elif char == 'k':
 		print ("turn light 8 ON")
 		# GPIO.output(18,GPIO.HIGH)
-		
-def freePlayModeLight():
-	print ("Free play mode light ON")
-	print ("Pattern mode light OFF")
-	# GPIO.setup(19, GPIO.HIGH)
-	# GPIO.setup(20, GPIO.LOW)
-
-def patternModeLight():
-	print ("Free play mode light OFF")
-	print ("Pattern mode light ON")
-	# GPIO.setup(19, GPIO.LOW)
-	# GPIO.setup(20, GPIO.HIGH)	
 
 def instrumentChange():
 	if piano:
@@ -404,11 +388,7 @@ if __name__=="__main__":
 	# GPIO.setup(13,GPIO.OUT)
 	# GPIO.setup(12,GPIO.OUT)
 	# GPIO.setup(11,GPIO.OUT)
-	# # Mode
-	# GPIO.setup(19, GPIO.OUT)
-	# GPIO.setup(20, GPIO.OUT)
 
-	freePlayModeLight()
 	instrumentChange()
 	running = True
 	while running:
@@ -449,28 +429,24 @@ if __name__=="__main__":
 					guitar = False
 					drum = False
 					violin = False
-					patternModeLight()
 					pattern1()
 				elif event.key == pygame.K_2:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
-					patternModeLight()
 					pattern2()
 				elif event.key == pygame.K_3:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
-					patternModeLight()
 					pattern3()
 				elif event.key == pygame.K_0:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
-					patternModeLight()
 					pattern0()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
