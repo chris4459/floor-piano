@@ -137,18 +137,16 @@ def pattern1():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
-				elif letter == 'x':
+				elif letter == '2':
 					pattern2()
 					return
-				elif letter == 'c':
+				elif letter == '3':
 					pattern3()
 					return
-				elif letter == 'p':
+				elif letter == 'backspace':
 					print ("Exiting pattern1")
-					patternModeLight()
-					return
-				elif event.key == K_ESCAPE:
-					print ("Exiting pattern1")
+					freePlayModeLight()
+					turnOffAllLEDLights()
 					return
 
 def pattern2():
@@ -168,18 +166,16 @@ def pattern2():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
-				elif letter == 'z':
+				elif letter == '1':
 					pattern1()
 					return
-				elif letter == 'c':
+				elif letter == '3':
 					pattern3()
 					return
-				elif letter == 'p':
+				elif letter == 'backspace':
 					print ("Exiting starwars pattern")
-					patternModeLight()
-					return
-				elif event.key == K_ESCAPE:
-					print ("Exiting Exiting starwars pattern")
+					freePlayModeLight()
+					turnOffAllLEDLights()
 					return
 
 def pattern3():
@@ -199,19 +195,28 @@ def pattern3():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
-				elif letter == 'z':
+				elif letter == '1':
 					pattern1()
 					return
-				elif letter == 'x':
+				elif letter == '2':
 					pattern2()
 					return
-				elif letter == 'p':
+				elif letter == 'backspace':
 					print ("Exiting three key pattern")
-					patternModeLight()
+					freePlayModeLight()
+					turnOffAllLEDLights()
 					return
-				elif event.key == K_ESCAPE:
-					print ("Exiting three key pattern")
-					return
+
+def turnOffAllLEDLights():
+	print ("turn all LED lights off")
+	# GPIO.output(11,GPIO.LOW)
+	# GPIO.output(12,GPIO.LOW)
+	# GPIO.output(13,GPIO.LOW)
+	# GPIO.output(14,GPIO.LOW)
+	# GPIO.output(15,GPIO.LOW)
+	# GPIO.output(16,GPIO.LOW)
+	# GPIO.output(17,GPIO.LOW)
+	# GPIO.output(18,GPIO.LOW)
 
 def turnOffLEDLight(char):
 	if char == 'a':
@@ -278,36 +283,27 @@ def patternModeLight():
 	# GPIO.setup(20, GPIO.HIGH)	
 
 def instrumentChange():
-# 	# Turn all off and then turn the selected instrument light on
-# 	# GPIO.output(21, GPIO.LOW)
-# 	# GPIO.output(22, GPIO.LOW)
-# 	# GPIO.output(23, GPIO.LOW)
-# 	# GPIO.output(24, GPIO.LOW)
 	if piano:
 		print("Piano instrument selected")
 		piano_c1.play(maxtime=1000)
 		piano_e.play(maxtime=1000)
 		piano_g.play(maxtime=1000)
-		# GPIO.output(21, GPIO.HIGH)
 	if guitar:
 		print("Guitar instrument selected")
 		guitar_1.play(maxtime=1000)
 		guitar_2.play(maxtime=1000)
 		guitar_4.play(maxtime=1000)
-		# GPIO.output(22, GPIO.HIGH)
 	if drum:
 		print("Drum instrument selected")
 		drum_1.play(maxtime=1000)
 		drum_2.play(maxtime=1000)
 		drum_3.play(maxtime=1000)
 		drum_4.play(maxtime=1000)
-		# GPIO.output(23, GPIO.HIGH)
 	if violin:
 		print("Violin instrument selected")
 		violin_c1.play(maxtime=1000)
 		violin_e.play(maxtime=1000)
 		violin_g.play(maxtime=1000)
-		# GPIO.output(24, GPIO.HIGH)
 
 if __name__=="__main__":
 	pygame.display.set_mode((120, 120), DOUBLEBUF | HWSURFACE)
@@ -323,15 +319,6 @@ if __name__=="__main__":
 	piano_a = pygame.mixer.Sound("piano/a.wav")
 	piano_b = pygame.mixer.Sound("piano/b.wav")
 	piano_c2 = pygame.mixer.Sound("piano/c2.wav")
-
-	violin_c1 = pygame.mixer.Sound("violin/violin_c1.wav")
-	violin_d = pygame.mixer.Sound("violin/violin_d.wav")
-	violin_e = pygame.mixer.Sound("violin/violin_e.wav")
-	violin_f = pygame.mixer.Sound("violin/violin_f.wav")
-	violin_g = pygame.mixer.Sound("violin/violin_g.wav")
-	violin_a = pygame.mixer.Sound("violin/violin_a.wav")
-	violin_b = pygame.mixer.Sound("violin/violin_b.wav")
-	violin_c2 = pygame.mixer.Sound("violin/violin_c2.wav")
 
 	guitar_1 = pygame.mixer.Sound("guitar/c.wav")
 	guitar_2 = pygame.mixer.Sound("guitar/d.wav")
@@ -351,6 +338,15 @@ if __name__=="__main__":
 	drum_7 = pygame.mixer.Sound("drum/SPARK_metal.wav")
 	drum_8 = pygame.mixer.Sound("drum/Timpani2.wav")
 
+	violin_c1 = pygame.mixer.Sound("violin/violin_c1.wav")
+	violin_d = pygame.mixer.Sound("violin/violin_d.wav")
+	violin_e = pygame.mixer.Sound("violin/violin_e.wav")
+	violin_f = pygame.mixer.Sound("violin/violin_f.wav")
+	violin_g = pygame.mixer.Sound("violin/violin_g.wav")
+	violin_a = pygame.mixer.Sound("violin/violin_a.wav")
+	violin_b = pygame.mixer.Sound("violin/violin_b.wav")
+	violin_c2 = pygame.mixer.Sound("violin/violin_c2.wav")
+
 	# GPIO.setmode(GPIO.BCM)
 	# GPIO.setwarnings(False)
 	# # Piano Keys
@@ -365,11 +361,6 @@ if __name__=="__main__":
 	# # Mode
 	# GPIO.setup(19, GPIO.OUT)
 	# GPIO.setup(20, GPIO.OUT)
-	# # Instruments
-	# GPIO.setup(21, GPIO.OUT)
-	# GPIO.setup(22, GPIO.OUT)
-	# GPIO.setup(23, GPIO.OUT)
-	# GPIO.setup(24, GPIO.OUT)
 
 	freePlayModeLight()
 	instrumentChange()
@@ -407,21 +398,21 @@ if __name__=="__main__":
 					violin = True
 					instrumentChange()
 				# Patterns
-				elif event.key == pygame.K_z:
+				elif event.key == pygame.K_1:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
 					patternModeLight()
 					pattern1()
-				elif event.key == pygame.K_x:
+				elif event.key == pygame.K_2:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
 					patternModeLight()
 					pattern2()
-				elif event.key == pygame.K_c:
+				elif event.key == pygame.K_3:
 					piano = True
 					guitar = False
 					drum = False
@@ -430,5 +421,5 @@ if __name__=="__main__":
 					pattern3()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
-				# turnOffLEDLight(letter)
+				turnOffLEDLight(letter)
 				
