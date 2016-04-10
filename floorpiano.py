@@ -118,8 +118,9 @@ def play_8():
 		violin_c2.play(maxtime=800)
 
 def pattern1():
-	print ("Starting pattern 1. Changing instrument to piano")
-	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f', 'd', 'f', 'g', 'd', 'g', 'd', 'g', 'f', 'g', 'h', 'h', 'g', 'f', 'h']
+	print ("Starting sound of music")
+	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd', 's', 'd', 'f', 'f', 'd', 's', 'f', \
+				'd', 'f', 'g', 'd', 'g', 'd', 'g', 'f', 'g', 'h', 'h', 'g', 'f', 'h']
 	index = 0
 	turnOffAllLEDLights()
 	# Turn light on for first note
@@ -128,7 +129,6 @@ def pattern1():
 		for event in pygame.event.get():
 			if event.type == KEYDOWN:
 				letter = pygame.key.name(event.key)
-				print (letter)
 				if letter == sequence[index]:
 					converter(letter)
 					# When current note is stepped on, turn off the LED light for current light
@@ -139,14 +139,23 @@ def pattern1():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
 				elif letter == '[2]':
 					pattern2()
 					return
 				elif letter == '[3]':
 					pattern3()
 					return
-				elif letter == '[0]':
-					pattern0()
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == '[6]':
+					pattern6()
 					return
 				elif letter == 'backspace':
 					print ("Exiting pattern1")
@@ -154,7 +163,7 @@ def pattern1():
 					return
 
 def pattern2():
-	print ("Starting star wars theme! Changing instrument to piano")
+	print ("Starting star wars theme!")
 	sequence = ['a', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 's', 'k', 'g', 'f', 'd', 'f', 's']
 	index = 0
 	turnOffAllLEDLights()
@@ -171,14 +180,23 @@ def pattern2():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
 				elif letter == '[1]':
 					pattern1()
 					return
 				elif letter == '[3]':
 					pattern3()
 					return
-				elif letter == '[0]':
-					pattern0()
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == '[6]':
+					pattern6()
 					return
 				elif letter == 'backspace':
 					print ("Exiting starwars pattern")
@@ -187,7 +205,10 @@ def pattern2():
 
 def pattern3():
 	print ("Starting jingle bells pattern")
-	sequence = ['d', 'd', 'd', 'd', 'd', 'd', 'd', 'g', 'a', 's', 'd', 'f', 'f', 'f', 'f', 'f', 'd', 'd', 'd', 'd', 's', 's', 'd', 's', 'g','d', 'd', 'd', 'd', 'd', 'd', 'd', 'g', 'a', 's', 'd', 'f', 'f', 'f', 'f', 'f', 'd', 'd', 'd', 'g', 'g', 'f', 's', 'a']
+	sequence = ['d', 'd', 'd', 'd', 'd', 'd', 'd', 'g', 'a', 's', 'd',\
+				 'f', 'f', 'f', 'f', 'f', 'd', 'd', 'd', 'd', 's', 's', 'd', 's', 'g',\
+				 'd', 'd', 'd', 'd', 'd', 'd', 'd', 'g', 'a', 's', 'd', \
+				 'f', 'f', 'f', 'f', 'f', 'd', 'd', 'd', 'g', 'g', 'f', 's', 'a']
 	index = 0
 	turnOffAllLEDLights()
 	turnOnLEDLight(sequence[index])
@@ -203,14 +224,23 @@ def pattern3():
 						index = 0
 					turnOnLEDLight(sequence[index])
 					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
 				elif letter == '[1]':
 					pattern1()
 					return
 				elif letter == '[2]':
 					pattern2()
 					return
-				elif letter == '[0]':
-					pattern0()
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == '[6]':
+					pattern6()
 					return
 				elif letter == 'backspace':
 					print ("Exiting three key pattern")
@@ -218,8 +248,10 @@ def pattern3():
 					return
 
 def pattern0():
-	print ("Starting pattern for only three keys")
-	sequence = ['a', 's', 'd', 'a', 'd', 'a', 'd']
+	print ("Starting twinkle twinkle little stars")
+	sequence = ['a', 'a', 'g', 'g', 'h', 'h', 'g', 'f', 'f', 'd', 'd', 's', 's', 'a', 'g', 'g',\
+				'f', 'f', 'd', 'd', 's', 'g', 'g', 'f', 'f', 'd', 'd', 's',\
+				'a', 'a', 'g', 'g', 'h', 'h', 'g', 'f', 'f', 'd', 'd', 's', 's', 'a' ]
 	index = 0
 	turnOffAllLEDLights()
 	turnOnLEDLight(sequence[index])
@@ -244,11 +276,145 @@ def pattern0():
 				elif letter == '[3]':
 					pattern3()
 					return
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == '[6]':
+					pattern6()
+					return
 				elif letter == 'backspace':
 					print ("Exiting three key pattern")
 					turnOffAllLEDLights()
 					return
 
+def pattern4():
+	print ("Starting Mary had a Little Lamb")
+	sequence = ['d', 's', 'a', 's', 'd', 'd', 'd', 's', 's', 's', 'd', 'g', 'g', \
+				'd', 's', 'a', 's', 'd', 'd', 'd', 'd', 's', 's', 'd', 's' , 'a']
+	index = 0
+	turnOffAllLEDLights()
+	turnOnLEDLight(sequence[index])
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					converter(letter)
+					turnOffLEDLight(sequence[index])
+					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
+					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
+				elif letter == '[1]':
+					pattern1()
+					return
+				elif letter == '[2]':
+					pattern2()
+					return
+				elif letter == '[3]':
+					pattern3()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == '[6]':
+					pattern6()
+					return
+				elif letter == 'backspace':
+					print ("Exiting three key pattern")
+					turnOffAllLEDLights()
+					return
+
+def pattern5():
+	print ("Starting The First Noel")
+	sequence = ['d', 's', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'j', 'h', 'g', \
+				'h', 'j', 'k', 'j', 'h', 'g', 'h', 'j', 'k', 'g', 'f', 'd']
+	index = 0
+	turnOffAllLEDLights()
+	turnOnLEDLight(sequence[index])
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					converter(letter)
+					turnOffLEDLight(sequence[index])
+					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
+					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
+				elif letter == '[1]':
+					pattern1()
+					return
+				elif letter == '[2]':
+					pattern2()
+					return
+				elif letter == '[3]':
+					pattern3()
+					return
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[6]':
+					pattern6()
+					return
+				elif letter == 'backspace':
+					print ("Exiting three key pattern")
+					turnOffAllLEDLights()
+					return
+
+def pattern6():
+	print ("Starting London Bridge")
+	sequence = ['g', 'h', 'g', 'f', 'd', 'f', 'g', 's', 'd', 'f', 'd', 'f' , 'g', \
+				'g', 'h', 'g', 'f', 'd', 'f', 'g', 's', 'g', 'd', 'a']
+	index = 0
+	turnOffAllLEDLights()
+	turnOnLEDLight(sequence[index])
+	while index < len(sequence):
+		for event in pygame.event.get():
+			if event.type == KEYDOWN:
+				letter = pygame.key.name(event.key)
+				if letter == sequence[index]:
+					converter(letter)
+					turnOffLEDLight(sequence[index])
+					index += 1
+					if index == len(sequence):
+						index = 0
+					turnOnLEDLight(sequence[index])
+					print ("Correct note played!")
+				elif letter == '[0]':
+					pattern0()
+					return
+				elif letter == '[1]':
+					pattern1()
+					return
+				elif letter == '[2]':
+					pattern2()
+					return
+				elif letter == '[3]':
+					pattern3()
+					return
+				elif letter == '[4]':
+					pattern4()
+					return
+				elif letter == '[5]':
+					pattern5()
+					return
+				elif letter == 'backspace':
+					print ("Exiting three key pattern")
+					turnOffAllLEDLights()
+					return
 
 def turnOffAllLEDLights():
 	print ("turn all LED lights off")
@@ -450,6 +616,24 @@ if __name__=="__main__":
 					drum = False
 					violin = False
 					pattern0()
+				elif event.key == pygame.K_KP4:
+					piano = True
+					guitar = False
+					drum = False
+					violin = False
+					pattern4()
+				elif event.key == pygame.K_KP5:
+					piano = True
+					guitar = False
+					drum = False
+					violin = False
+					pattern5()
+				elif event.key == pygame.K_KP6:
+					piano = True
+					guitar = False
+					drum = False
+					violin = False
+					pattern6()
 			elif event.type == KEYUP:
 				letter = pygame.key.name(event.key)
 				turnOffLEDLight(letter)
