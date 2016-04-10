@@ -567,25 +567,25 @@ if __name__=="__main__":
 				if event.key == K_ESCAPE:
 					running = False
 				# Instrument switching
-				elif event.key == pygame.K_q:
+				elif event.key == pygame.K_KP_DIVIDE:
 					piano = True
 					guitar = False
 					drum = False
 					violin = False
 					instrumentChange()
-				elif event.key == pygame.K_w:
+				elif event.key == pygame.K_KP_MULTIPLY:
 					piano = False
 					guitar = True
 					drum = False
 					violin = False
 					instrumentChange()
-				elif event.key == pygame.K_e:
+				elif event.key == pygame.K_KP_MINUS:
 					piano = False
 					guitar = False
 					drum = True
 					violin = False
 					instrumentChange()
-				elif event.key == pygame.K_r:
+				elif event.key == pygame.K_KP_PLUS:
 					piano = False
 					guitar = False
 					drum = False
